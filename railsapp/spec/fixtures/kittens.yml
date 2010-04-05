@@ -1,5 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+shiva: # A fixture called "shiva"
+  legs: 6 # An attribute "legs" set to 6
+  name: "Shiva The Destroyer
+
 one:
   name: MyString
   legs: 1

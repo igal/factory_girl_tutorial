@@ -1,14 +1,12 @@
 require 'spec_helper'
 
 describe Kitten do
-  before(:each) do
-    @valid_attributes = {
-      :name => "value for name",
-      :legs => 1
-    }
-  end
+  describe "with fixtures" do
+    fixtures :kittens
 
-  it "should create a new instance given valid attributes" do
-    Kitten.create!(@valid_attributes)
+    it "should have a number of legs" do
+      kitten = kittens(:shiva)
+      kitten.legs.should be_a_kind_of(Fixnum)
+    end
   end
 end

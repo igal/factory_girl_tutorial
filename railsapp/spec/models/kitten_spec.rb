@@ -50,4 +50,19 @@ describe Kitten do
       kitten.description.should =~ /A kitten with \d+ legs and \d+ toys/
     end
   end
+
+  describe "with custom factory + factory_girl" do
+    def create_kitten_with_description(name, &block)
+      kitten = Factory(:kitten, :name => name)
+      kitten.description = block.call(kitten)
+      return kitten
+    end
+
+    it "should set description" do
+      kitten = create_kitten_with_description("Shiva") do |k| 
+        k.name.size.to_s
+      end
+      kitten.description.should == "5"
+    end
+  end
 end

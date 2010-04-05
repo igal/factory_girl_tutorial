@@ -23,4 +23,18 @@ describe Kitten do
       kitten.legs.should be_a_kind_of(Fixnum)
     end
   end
+
+  describe "with factory_girl" do
+    it "should have a number of legs" do
+      kitten = Factory(:kitten)
+      kitten.legs.should be_a_kind_of(Fixnum)
+    end
+
+    it "should have the expected number of legs" do
+      # Override the :name & :legs defaults
+      kitten = Factory(:kitten, \
+       :name => "Shiva The Destroyer", :legs => 6)
+      kitten.legs.should == 6
+    end
+  end
 end

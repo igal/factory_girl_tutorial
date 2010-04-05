@@ -18,3 +18,10 @@ Factory.define :kitten_with_toys, :parent => :kitten do |f|
     ]
   end
 end
+
+Factory.define :kitten_with_toys_and_description_callback, \
+    :parent => :kitten_with_toys do |f|
+  f.after_build do |r|
+    r.description = "A kitten with #{r.legs} legs and #{r.toys.count} toys"
+  end
+end

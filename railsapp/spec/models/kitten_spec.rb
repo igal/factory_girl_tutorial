@@ -45,5 +45,9 @@ describe Kitten do
       end
     end
 
+    it "should have a description set by a callback" do
+      kitten = Factory(:kitten_with_toys_and_description_callback)
+      kitten.description.should =~ /A kitten with \d+ legs and \d+ toys/
+    end
   end
 end

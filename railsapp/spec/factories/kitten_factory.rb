@@ -9,3 +9,12 @@ Factory.define :kitten do |f|
   f.description { |r| "A kitten with #{r.legs} legs" }
 end
 
+Factory.define :kitten_with_toys, :parent => :kitten do |f|
+  # Toys to create via :has_many association
+  f.toys do |r| 
+    [
+      r.association(:toy, :name => "Fragile Vase"),
+      r.association(:toy, :name => "My Leg")
+    ]
+  end
+end

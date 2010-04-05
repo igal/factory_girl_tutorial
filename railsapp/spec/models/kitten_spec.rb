@@ -36,5 +36,14 @@ describe Kitten do
        :name => "Shiva The Destroyer", :legs => 6)
       kitten.legs.should == 6
     end
+
+    it "should have associated toys" do
+      kitten = Factory(:kitten_with_toys)
+      kitten.toys.count.should >= 0
+      kitten.toys.each do |toy|
+        toy.kitten.should == kitten
+      end
+    end
+
   end
 end
